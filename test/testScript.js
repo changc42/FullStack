@@ -1,6 +1,12 @@
+var lat;
+var longi;
+
 function foo(){
 	navigator.geolocation.getCurrentPosition(pos =>{
-		console.log(pos);
+		lat=pos.coords.latitude;
+		longi=pos.coords.longitude;
+		console.log(lat + " " + longi);
+		
 	})
 	
 
