@@ -20,6 +20,7 @@ function foo(){
 		});
 }
 */
+var h1 = document.getElementById("h1");
 
 window.addEventListener("load",() => {
 	if(navigator.geolocation){
@@ -39,6 +40,8 @@ window.addEventListener("load",() => {
 					console.log(data);
 					let x = data.currently;
 					console.log(x.temperature + " " + x.summary);
+					h1.textContent = x.temperature;
+
 				});
 		});
 	}
