@@ -27,7 +27,7 @@ window.addEventListener("load",() => {
 			lat=pos.coords.latitude;
 			long=pos.coords.longitude;
 		
-		console.log(lat + " " + long);
+			console.log(lat + " " + long);
 			const proxy ="https://cors-anywhere.herokuapp.com/";
 			const api = `${proxy}https://api.darksky.net/forecast/19225e2dbb37011c100eba26e5a0d482/${lat},${long}`;
 
@@ -37,6 +37,8 @@ window.addEventListener("load",() => {
 				})
 				.then(data => {
 					console.log(data);
+					let x = data.currently;
+					console.log(x.temperature + " " + x.summary);
 				});
 		});
 	}
