@@ -1,11 +1,10 @@
-
 var lat;
 var long;
 
 var h1 = document.getElementById("h1");
 
 window.addEventListener("load",() => {
-	if(navigator.geolocation){
+	
 		navigator.geolocation.getCurrentPosition(pos =>{
 			lat=pos.coords.latitude;
 			long=pos.coords.longitude;
@@ -33,7 +32,7 @@ window.addEventListener("load",() => {
 					h1.textContent = x.summary;
 				});
 		});
-	}
+
 
 	function setIcon(iconName){
 		var skycons = new Skycons({"color":"black"});
@@ -46,4 +45,3 @@ window.addEventListener("load",() => {
 	skycons.play();
 */
 });
-

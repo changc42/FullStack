@@ -1,20 +1,28 @@
-.flex{
+html{
+	padding: 0px;
+	margin: 0px;
+}
+
+body{
+	padding: 0px;
+	margin: 0px;
+}
+
+
+#first{
+	padding: 0px;
+	margin: 0px;
+	background-color: green;
+}
+
+#two{
+	padding: 0px;
+	margin: 0px;
+	background-color: blue;
+}
+
+#container{
 	display: flex;
-	padding: 250px 0 0 0;
-}
-
-#h1{
-	flex:1;
-	text-align: right;
-}
-.container{
-	flex:1;
-}
-
-h2{
-	text-align: center;
-}
-
-#y{
-	text-align: center;
+	flex-direction: column;
+	justify-content: space-between;
 }
