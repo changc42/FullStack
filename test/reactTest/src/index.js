@@ -7,7 +7,7 @@ import Car from './Car.js';
 class Garage extends React.Component{
 	render(){
 		return(
-			<h1>Garage knows Car says "{<Car />}"</h1>
+			<h1>Garage knows Car sayrrs "{<Car />}"</h1>
 		);
 	}
 }
