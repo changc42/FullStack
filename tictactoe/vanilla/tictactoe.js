@@ -1,6 +1,4 @@
 var tableDataElements = document.getElementsByTagName("table")[0].getElementsByTagName("td");
-var squareValues = [];
-for(let i=0)
 
 var isXTurn = true;
 var turnNumb = 0;
