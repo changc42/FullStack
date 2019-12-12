@@ -2,12 +2,14 @@ var tableDataElements = document.getElementsByTagName("table")[0].getElementsByT
 
 var isXTurn = true;
 var turnNumb = 0;
-var pastTurns = [];
+var pastTurns = [];//array which holds arrays of size 9. Interior arrays contain the state of the board in past turns.
+//For example, pastTurns[0] is the char array of size 9 which contains the chars in each square of the board at turn 0
 
 for(let i=0; i<9; i++){
-	square[i].setAttribute("onclick", `foo(${i})`);
+	tableDataElements[i].setAttribute("onclick", `foo(${i})`);
 }
 
+//name is foo because this function does so many things
 function foo(i){
 	//if there is winner, do nothing
 	if(isWinner()){
@@ -17,12 +19,12 @@ function foo(i){
 	//record current board in pastTurns
 	let temp = [];
 	for(let j=0; j<9; j++){
-		temp.push(square[j].innerHTML);
+		temp.push(tableDataElements[j].innerHTML);
 	}
 	pastTurns.push(temp);
 
 	//mark board
-	square[i].innerHTML = isXTurn ? "X": "O";
+	tableDataElements[i].innerHTML = isXTurn ? "X": "O";
 
 	//update nextPlayer
 	isXTurn = !isXTurn;
@@ -42,58 +44,57 @@ function foo(i){
 	turnNumb++;
 
 	//call isWinner at end to notify user there is winner
-	isWinner();
+	if(isWinner()){
+		let winner = isXTurn ? "0" : "X";
+		console.log("winner is " + winner);
+	}
 }
 
 function isWinner(){
-	for(let i=0; i<3; i++){
-		let b=true;
-		for(let j=0; j<3; j++){
-			if(square[i*3+j].innerHTML=="O" || square[i*3+j].innerHTML==""){
-				b=false;
+	//create char array to iteratre through
+	let charArr = ['X','O'];
+	for(var char of charArr){
+		for(let i=0; i<3; i++){
+			let b=true;
+			//check rows
+			for(let j=0; j<3; j++){
+				if(tableDataElements[i*3+j].innerHTML==char || tableDataElements[i*3+j].innerHTML==""){
+					b=false;
+				}
 			}
-		}
-		if(b){
-			console.log("winner!");
-			return true;
-		}
-	}
-	for(let i=0; i<3; i++){
-		let b=true;
-		for(let j=0; j<3; j++){
-			if(square[j*3+i].innerHTML=="O" || square[j*3+i].innerHTML==""){
-				b=false;
-			}
-		}
-		if(b){
-			console.log("winner!");
-			return true;
-		}
-	}
-	let b= true;
-	for(let i=0; i<3; i++){
+			if(b) return true;
 
-		if(square[i*3+i].innerHTML=="O" || square[i*3+i].innerHTML=="") b=false;
-	}
-	if(b){
-		console.log("winner!");
-		return true;
-	}
-	b=true;
-	for(let i=1; i<=3; i++){
-		if(square[i*2].innerHTML=="O" || square[i*2].innerHTML=="") b=false;
-	}
-	if(b){
-		console.log("winner!");
-		return true;
-	}
+			//check cols
+			b= true;
+			for(let j=0; j<3; j++){
+				if(tableDataElements[j*3+i].innerHTML==char || tableDataElements[j*3+i].innerHTML==""){
+					b=false;
+				}
+			}
+			if(b) return true;
+		}
+
+		//check top-left to bottom-right diag
+		let b= true;
+		for(let i=0; i<3; i++){
+			if(tableDataElements[i*3+i].innerHTML==char || tableDataElements[i*3+i].innerHTML=="") b=false;
+		}
+		if(b) return true;
+		//top-right to bottom-left
+		b=true;
+		for(let i=1; i<=3; i++){
+			if(tableDataElements[i*2].innerHTML==char || tableDataElements[i*2].innerHTML=="") b=false;
+		}
+		if(b) return true;
+	};
+	//if none of above returned true, return false
 	return false;
 }
 
 function rewind(){
 	let prevTurn = this.getAttribute("storedTurn");
 	for(let i=0; i<9; i++){
-		square[i].innerHTML = pastTurns[prevTurn][i];
+		tableDataElements[i].innerHTML = pastTurns[prevTurn][i];
 	}
 	while(turnNumb!=prevTurn){
 		turnNumb--;
