@@ -3,12 +3,11 @@ import ReactDOM from 'react-dom';
 
 class Fruit extends React.Component{
   static defaultProps = {
-    letter: "Ahh",
+    letter: "X",
   };
   render(){
-    console.log(this)
     return(
-      <div>{this.props.letter}</div>
+      <p>{this.props.letter}</p>
     );
   }
 }
