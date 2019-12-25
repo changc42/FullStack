@@ -1,0 +1,16 @@
+.PokeCard{
+	font-size: 20px;
+	font-family: "Comic Sans MS";
+	text-align: center;
+	background-color: lightgray;
+	width: 200px;
+	border-radius: 7px;
+	padding: 10px;
+	border: 1px solid;
+	margin: 1rem;
+	box-shadow: 7px 10px 12px -5px rgba(0,0,0,0.56)
+}
+
+img{
+	width:100px;
+}
