@@ -11,15 +11,19 @@ import './PokeDex.css';
 
 
 class PokeDex extends React.Component{
+	static defaultProps ={
+		cards: "null",
+		totalExp: 0
+	}
 	render(){
-		let cards = []
-		for(let i=0; i<4; i++){
-			let x = mapNumToId.get(randID());
-			cards.push(<PokeCard name={mapIdToProps.get(x)[0]} img={`https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${digit3(x)}.png`} type={mapIdToProps.get(x)[1]}/>)
-		}
 		return(
 			<div className="PokeDex">
-				{cards}
+				<div className="PokeDex_Text">
+					<h3>Total exp: {this.props.totalExp}</h3>
+				</div>
+				<div className="PokeDex_Cards">
+					{this.props.cards}
+				</div>
 			</div>
 		)
 	}

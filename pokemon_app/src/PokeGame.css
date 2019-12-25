@@ -1,0 +1,13 @@
+#winner{
+  text-align:center;
+  color: green;
+}
+
+#loser{
+  color: red;
+  text-align:center;
+}
+
+#tie{
+  text-align:center;
+}

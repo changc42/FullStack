@@ -2,5 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import 'bootstrap/dist/css/bootstrap.css';
 
-const element = <h1>Hello Wolrd</h1>;
-ReactDOM.render(element, document.getElementById("root"));
+class App extends React.Component{
+  render(){
+    let objectArr = [1,34,52,32,12,3];
+    let x = objectArr.reduce((total, num) => total+=num, 0);
+
+    console.log(x);
+
+    return "x";
+  }
+}
+
+
+ReactDOM.render(<App />, document.getElementById("root"));

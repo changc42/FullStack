@@ -1,6 +1,12 @@
 .PokeDex{
+	margin: 0px 10%;
+}
+
+.PokeDex_Text{
+	text-align:center;
+}
+
+.PokeDex_Cards{
 	display: flex;
 	justify-content: space-between;
-	max-width: 80%;
-
 }
