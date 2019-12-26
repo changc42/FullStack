@@ -23,8 +23,6 @@ class DiceRoller extends React.Component{
 		setTimeout( ()=>this.setState({rolling:false,}) , 1000);
 	}
 	render(){
-		let die1 = <Die />;
-		let die2 = <Die />;
 		return(
 			<div>
 				<div className="DiceRoller_Dice">
