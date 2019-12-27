@@ -16,6 +16,12 @@ import "./Cell.css"
  **/
 
 class Cell extends Component {
+
+  static defaultProps ={
+    isLit: true,
+    flipCellsAroundMe: ()=>console.log("this is default function call"),
+  }
+
   constructor(props) {
     super(props);
     this.handleClick = this.handleClick.bind(this);
@@ -23,7 +29,8 @@ class Cell extends Component {
 
   handleClick(evt) {
     // call up to the board to flip cells around this cell
-    this.props.flipCellsAroundMe();
+    //this.props.flipCellsAroundMe();
+    console.log(this);
   }
 
   render() {

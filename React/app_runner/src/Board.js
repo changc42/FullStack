@@ -35,14 +35,47 @@ class Board extends Component {
     super(props);
 
     // TODO: set initial state
+    this.state = {
+      board: this.initializeBoard(),
+      hasWon: this.hasWon(),
+    }
+
+    this.hasWon = this.hasWon.bind(this);
+  }
+
+  static defaultProps = {
+    nrows: 5,
+    ncols: 5,
+    chanceLightStartsOn: 0.5,
   }
 
   /** create a board nrows high/ncols wide, each cell randomly lit or unlit */
 
-  createBoard() {
+  initializeBoard() {
+    let {nrows, ncols} = this.props;
     let board = [];
     // TODO: create array-of-arrays of true/false values
+    for(let i=0; i<nrows; i++){
+      let row=[];
+      for(let j=0; j<ncols; j++){
+        let b = Math.random()<this.props.chanceLightStartsOn? true:false;
+        row.push(b);
+      }
+      board.push(row);
+    }
     return board
+  }
+
+  createBoard(){
+    let board = [];
+    for(let i=0; i<this.props.nrows; i++){
+      let row=[];
+      for(let j=0; j<this.props.ncols; j++){
+        row.push(<Cell isLit={this.state.board[i][j]} flipCellsAroundMe={this.flipCellsAround}/>);
+      }
+      board.push(<tr>{row}</tr>)
+    }
+    return board;
   }
 
   /** handle changing a cell: update board & determine if winner */
@@ -66,18 +99,39 @@ class Board extends Component {
     // win when every cell is turned off
     // TODO: determine is the game has been won
 
-    this.setState({board, hasWon});
+    //this.setState({board, hasWon});
   }
 
+  hasWon(){
+    let {ncols, nrows} = this.props;
+    //let board = this.state.board;
+    for(let i=0; i<nrows; i++){
+      for(let j=0; j<ncols; j++){
+        //if(board[i][j]==true) return false;
+      }
+    }
+    return false;
+  }
 
   /** Render game board or winning message. */
 
   render() {
-
+    return(
+      <div>
+        {this.hasWon()
+          ?
+          <h1>You win!</h1>
+          :
+          <div>
+            <h1>Lights Out</h1>
+            <table>
+              {this.createBoard()}
+            </table>
+          </div>}
+      </div>
+    )
     // if the game is won, just show a winning msg & render nothing else
-
-    // TODO
-
+    
     // make table board
 
     // TODO
