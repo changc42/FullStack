@@ -1,0 +1,12 @@
+.Blocks{
+    display: flex;
+    justify-content:space-around;
+    height: 200px;
+    align-items: center;
+}
+
+button{
+    width:200px;
+    height:100px;
+    font-size: 30px;
+}
