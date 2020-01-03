@@ -1,10 +1,10 @@
 import React from 'react';
-import BoxApp from './BoxApp';
+import Form from './Form';
 
 class App extends React.Component{
   render(){
     return (
-      <BoxApp/>
+      <Form />
     );
   }
 }
