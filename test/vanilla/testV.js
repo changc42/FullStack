@@ -1,8 +1,27 @@
-/*
-var tableDataElements = document.getElementsByTagName("table")[0].getElementsByTagName("td");
-for(let i=0; i<9; i++){
-	console.log(tableDataElements[i].innerHTML);
-}
-*/
-charArray = ['c','f','r'];
-for(var char of charArray) console.log(char);
+let obj1 = {
+  height: 100,
+  width: 150,
+  color: "red"
+};
+
+let obj2 = {
+  height: 200,
+  width: 250,
+  color: "purple"
+};
+
+let arr = [
+  {
+    height: 100,
+    width: 150,
+    color: "red"
+  },
+  obj2
+];
+console.log(
+  arr.indexOf({
+    height: 100,
+    width: 150,
+    color: "red"
+  })
+);
