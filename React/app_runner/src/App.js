@@ -1,11 +1,9 @@
-import React from 'react';
-import BoxApp from './BoxApp';
+import React from "react";
+import ToDoList from "./ToDoList";
 
-class App extends React.Component{
-  render(){
-    return (
-      <BoxApp/>
-    );
+class App extends React.Component {
+  render() {
+    return <ToDoList />;
   }
 }
 
