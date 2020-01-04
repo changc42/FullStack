@@ -9,7 +9,7 @@ class Task extends React.Component {
 
   state = {
     isEditing: false,
-    text: this.props.task.text
+    task: this.props.task,
   };
 
   handleRemove = this.handleRemove.bind(this);
@@ -17,29 +17,45 @@ class Task extends React.Component {
     this.props.removeTask(this.props.task.id);
   }
 
-  handleEdit = this.handleEdit.bind(this);
-  handleEdit() {
+  switchEditState = this.switchEditState.bind(this);
+  switchEditState() {
     let { isEditing } = this.state;
     if (isEditing) this.setState({ isEditing: false });
     else this.setState({ isEditing: true });
   }
 
+  handleChange = this.handleChange.bind(this);
+  handleChange(evt){
+    this.setState({task: {id: this.state.task.id, text:evt.target.value}});
+  }
+
+  handleUpdate = this.handleUpdate.bind(this);
+  handleUpdate(e){
+    e.preventDefault();
+    this.props.updateTask(this.state.task);
+    this.switchEditState();
+  }
+
   render() {
-    let editForm = (
-      <form onSubmit={this.props.update}>
-        <input value={this.state.text} />
-        <button>update</button>
-      </form>
+    let whenEditing = (
+      <span>
+        <form onSubmit={this.handleUpdate}>
+          <input value={this.state.task.text} onChange={this.handleChange}/>
+          <button>update</button>
+        </form>
+        <button onClick={this.switchEditState}>cancel edit</button>
+      </span>
+    );
+
+    let whenNotEditing = (
+      <span>
+        <span>{this.props.task.text}</span>
+        <button onClick={this.switchEditState}>edit</button>
+      </span>
     );
     return (
       <div>
-        {this.state.isEditing ? editForm : <span>{this.state.text}</span>}
-
-        {this.state.isEditing ? (
-          <button onClick={this.handleEdit}>cancel edit</button>
-        ) : (
-          <button onClick={this.handleEdit}>edit</button>
-        )}
+        {this.state.isEditing ? whenEditing : whenNotEditing}
 
         <button onClick={this.handleRemove}>remove</button>
       </div>

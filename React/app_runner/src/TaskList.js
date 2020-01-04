@@ -5,7 +5,7 @@ import uuid from "uuid/v4";
 class TaskList extends React.Component {
   static defaultProps = {
     tasks: [{ id: uuid(), text: "default 1" }],
-    editTask: () => console.log("default"),
+    updateTask: () => console.log("default"),
     removeTask: () => console.log("default")
   };
 
@@ -14,7 +14,7 @@ class TaskList extends React.Component {
       <Task
         task={task}
         removeTask={this.props.removeTask}
-        editTask={this.props.editTask}
+        updateTask={this.props.updateTask}
       />
     ));
     return taskArr;

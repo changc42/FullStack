@@ -21,10 +21,13 @@ class ToDoList extends React.Component {
     this.setState({ tasks: this.state.tasks.filter(s => s.id !== id) });
   }
 
-  updateTask(id, str) {
-    let index = this.state.tasks.map(e => e.id).indexOf(id);
-    let newTask = { id: uuid(), text: str };
-    this.setState({ tasks: this.state.tasks.splice(index, 1, newTask) });
+  updateTask = this.updateTask.bind(this);
+  updateTask(task) {
+    let index = this.state.tasks.map(e => e.id).indexOf(task.id);
+    let newTask = { id: task.id, text: task.text };
+    this.state.tasks.splice(index, 1, newTask)
+    console.log(this.state.tasks);
+    this.setState({ tasks: this.state.tasks });
   }
 
   render() {
@@ -33,7 +36,7 @@ class ToDoList extends React.Component {
         <h1>React To-Do List!</h1>
         <TaskList
           tasks={this.state.tasks}
-          editTask={this.editTask}
+          updateTask={this.updateTask}
           removeTask={this.removeTask}
         />
         <h3>New tasks</h3>
