@@ -1,0 +1,10 @@
+less than 0 upvotes: <i class="fas fa-angry fa-2x"></i>
+0 upvote: <i class="far fa-meh-blank fa-2x"></i>
+1 upvote: <i class="far fa-smile fa-2x"></i>
+5 upvotes: <i class="far fa-laugh-squint fa-2x"></i>
+10 upvotes: <i class="far fa-grin-squint-tears fa-2x"></i>
+
+upvote: <i class="fas fa-arrow-up fa-2x"></i>
+downvote: <i class="fas fa-arrow-down fa-2x"></i>
+
+spinner: <i class="fas fa-spinner fa-10x"></i>
