@@ -1,9 +1,11 @@
-import React from "react";
-import ToDoList from "./ToDoList";
+import React from 'react';
+import DadJokesApp from './DadJokesApp';
 
-class App extends React.Component {
-  render() {
-    return <ToDoList />;
+class App extends React.Component{
+  render(){
+    return (
+      <DadJokesApp />
+    );
   }
 }
 
