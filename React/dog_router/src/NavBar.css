@@ -1,0 +1,25 @@
+.NavBar{
+    display: flex;
+    background-color: aquamarine;
+    font-size: 30px;
+}
+
+.NavBar_Names{
+    flex:9;
+    display: flex;
+    justify-content: space-around;
+}
+
+.NavBar *{
+    color:black;
+}
+
+#NavBarTitle{
+    flex:1;
+    background-color: bisque;
+    text-align: center;
+}
+
+.NavBar_Active{
+    text-decoration: underline;
+}
