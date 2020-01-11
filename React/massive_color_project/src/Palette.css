@@ -1,0 +1,12 @@
+.Palette{
+    height: 100vh;
+}
+
+.Palette_Colors{
+    height: 90%;
+}
+
+.slider{
+    width: 400px;
+    margin: 0
+}
