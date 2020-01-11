@@ -1,13 +1,15 @@
 import React from 'react';
-import Food from './Food';
-import {Route, NavLink} from 'react-router-dom';
+import Counter from './Counter';
+import CounterHooks from './CounterHooks.js';
 
 class App extends React.Component{
   render(){
     return (
       <div>
-        <Route exact path="/food/:name" render={()=> <Food name="egg" />} />
+        <Counter />
+        <CounterHooks />
       </div>
+        
     );
   }
 }
