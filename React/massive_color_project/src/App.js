@@ -12,7 +12,7 @@ class App extends React.Component{
       <div>
         <div style={{backgroundColor: "red", height:"400px"}}>3</div>
         <div style={{backgroundColor: `${color}`, height:"400px"}}>3</div>
-        <Palette palette={getPalette(seedColors[5])}/>
+        <Palette palette={getPalette(seedColors[5])} />
         
       </div>
         
